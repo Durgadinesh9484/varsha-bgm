@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Varshulu ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:Poppins,sans-serif;
+  background:linear-gradient(135deg,#ff4d6d,#ff8fab);
+  height:100vh;
+  overflow:hidden;
+}
+section{
+  display:none;
+  height:100vh;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:white;
+  padding:20px;
+}
+.active{display:flex;flex-direction:column;animation:fade 1s}
+@keyframes fade{
+  from{opacity:0;transform:scale(0.9)}
+  to{opacity:1;transform:scale(1)}
+}
+.card{
+  background:white;
+  color:#333;
+  padding:25px;
+  border-radius:20px;
+  max-width:360px;
+}
+img{
+  width:100%;
+  border-radius:15px;
+  margin-bottom:10px;
+}
+button{
+  margin-top:15px;
+  padding:10px 25px;
+  border:none;
+  border-radius:25px;
+  background:#ff2e63;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+}
+.love{
+  font-size:40px;
+  color:#ff2e63;
+  animation:pulse 1s infinite;
+}
+@keyframes pulse{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.2)}
+  100%{transform:scale(1)}
+}
+.heart{
+  position:fixed;
+  font-size:20px;
+  animation:float 4s linear infinite;
+}
+@keyframes float{
+  0%{transform:translateY(0);opacity:1}
+  100%{transform:translateY(-100vh);opacity:0}
+}
+</style>
+</head>
+
+<body>
+
+<audio id="music" src="../audio/HIT 3 - Prema Velluva Song.mp3"></audio>
+
+<!-- PAGE 1 -->
+<section class="active" id="p1">
+  <div class="card">
+    <h1>For my Ammulu(BGM)❤️</h1>
+    <p>chinna programming tho love❤️ which i have small knowledge</p>
+    <button onclick="next(2)">Start 💌</button>
+  </div>
+</section>
+
+<!-- PAGE 2 -->
+<section id="p2">
+  <div class="card">
+    <img src="../pics/WhatsApp Image 2026-02-03 at 9.13.25 AM.jpeg">
+    <h2>Our Memory Our fav Pic 😍</h2>
+    <p>Every moment with you is precious.</p>
+    <button onclick="next(3)">Next ❤️</button>
+  </div>
+</section>
+
+<!-- PAGE 3 -->
+<section id="p3">
+  <div class="card">
+    <div class="love">I love YOU Nanna😘🫂</div>
+    <p>Happy 2nd Anniversary<br>My Everything 💖</p>
+    <button onclick="next(4)">One Last Thing 💍</button>
+  </div>
+</section>
+
+<!-- PAGE 4 -->
+<section id="p4">
+  <div class="card">
+    <h1>Mana love journey start ayyi 2 years I feel this love journey end on my last breath 💍 <br> Will you Accept me forever</h1>
+    <button onclick="yes()">YES 💖</button>
+    <button onclick="always()">ALWAYS ♾️</button>
+    <p id="msg"></p>
+  </div>
+</section>
+
+<script>
+function next(n){
+  document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
+  document.getElementById("p"+n).classList.add("active");
+
+  if(n===3){
+    document.getElementById("music").play();
+    hearts();
+  }
+}
+
+function yes(){
+  document.getElementById("msg").innerHTML="Always button click chey bgm 😭❤️";
+}
+
+function always(){
+  document.getElementById("msg").innerHTML="Forever, ILU too 🫠& Always ♾️🥹";
+}
+
+function hearts(){
+  setInterval(()=>{
+    const h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML="❤️🫂";
+    h.style.left=Math.random()*100+"vw";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),4000);
+  },300);
+}
+</script>
+
+</body>
+</html>
